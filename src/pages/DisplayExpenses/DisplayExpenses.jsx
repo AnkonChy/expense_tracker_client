@@ -31,7 +31,7 @@ const DisplayExpenses = () => {
   return (
     <div className="overflow-x-auto w-10/12 mx-auto pt-20">
       <h1 className="text-4xl font-bold text-center pb-6">All Expense</h1>
-      <div className="my-2">
+      <div className="">
         <div className="flex items-center justify-end gap-4">
           <select
             name="sort"
