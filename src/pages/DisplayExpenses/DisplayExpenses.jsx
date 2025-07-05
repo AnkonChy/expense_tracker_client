@@ -31,6 +31,20 @@ const DisplayExpenses = () => {
   return (
     <div className="overflow-x-auto w-10/12 mx-auto pt-20">
       <h1 className="text-4xl font-bold text-center pb-6">All Expense</h1>
+      <div className="my-8">
+        <div className="flex items-center justify-end gap-4">
+          <select
+            name="sort"
+            id="sort"
+            className="border p-4 rounded-md"
+            // onChange={(e) => setSort(e.target.value)}
+            // value={sort}
+          >
+            <option value="">Sort By Cateory</option>
+          </select>
+          <button className="btn">Reset</button>
+        </div>
+      </div>
       <table className="table">
         <thead>
           <tr>

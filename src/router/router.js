@@ -3,7 +3,7 @@ import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home/Home";
 import AddExpense from "../pages/AddExpense/AddExpense";
 import DisplayExpenses from "../pages/DisplayExpenses/DisplayExpenses";
-
+import ExpenseSummary from "../pages/ExpenseSummary/ExpenseSummary";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +16,11 @@ const router = createBrowserRouter([
         path: "allExpense",
         Component: DisplayExpenses,
         loader: () => fetch("http://localhost:3000/allExpense"),
+      },
+      {
+        path: "summary",
+        Component: ExpenseSummary,
+        loader: () => fetch("http://localhost:3000/sumExpense"),
       },
     ],
   },

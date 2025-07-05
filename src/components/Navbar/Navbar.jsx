@@ -34,6 +34,9 @@ const Navbar = () => {
             </li>{" "}
             <li>
               <NavLink to="/allExpense">Display Expenses</NavLink>
+            </li>{" "}
+            <li>
+              <NavLink to="/summary">Expense Summary</NavLink>
             </li>
           </ul>
         </div>
@@ -49,6 +52,9 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink to="/allExpense">Display Expenses</NavLink>
+          </li>
+          <li>
+            <NavLink to="/summary">Expense Summary</NavLink>
           </li>
         </ul>
       </div>
