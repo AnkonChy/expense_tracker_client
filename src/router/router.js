@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router";
 import MainLayout from "../layouts/MainLayout";
 import Home from "../pages/Home/Home";
 import AddExpense from "../pages/AddExpense/AddExpense";
+import DisplayExpenses from "../pages/DisplayExpenses/DisplayExpenses";
+
 
 const router = createBrowserRouter([
   {
@@ -10,6 +12,11 @@ const router = createBrowserRouter([
     children: [
       { index: true, Component: Home },
       { path: "addExpense", Component: AddExpense },
+      {
+        path: "allExpense",
+        Component: DisplayExpenses,
+        loader: () => fetch("http://localhost:3000/allExpense"),
+      },
     ],
   },
 ]);
