@@ -6,6 +6,11 @@ import Swal from "sweetalert2";
 const DisplayExpenses = () => {
   const expenseData = useLoaderData();
   const [expense, setExpense] = useState(expenseData); // ✅ initialize state
+  const [selectedCategory, setSelectedCategory] = useState(""); // ✅ initialize state
+
+  const filterdExpenses = selectedCategory
+    ? expenseData.filter((expense) => expense.category === selectedCategory)
+    : expenseData;
 
   const handleDelete = async (id) => {
     try {
@@ -32,15 +37,17 @@ const DisplayExpenses = () => {
     <div className="overflow-x-auto w-10/12 mx-auto pt-20">
       <h1 className="text-4xl font-bold text-center pb-6">All Expense</h1>
       <div className="">
-        <div className="flex items-center justify-end gap-4">
+        <div className="flex items-center justify-start gap-4">
           <select
-            name="sort"
-            id="sort"
-            className="border p-4 rounded-md"
-            // onChange={(e) => setSort(e.target.value)}
-            // value={sort}
+            className="select select-bordered w-full max-w-xs"
+            onChange={(e) => setSelectedCategory(e.target.value)}
           >
-            <option value="">Sort By Cateory</option>
+            <option value="">All Categories</option>
+            <option value="food">Food</option>
+            <option value="travel">Travel</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="bills">Bills</option>
+            <option value="others">Other</option>
           </select>
           <button className="btn">Reset</button>
         </div>
@@ -64,7 +71,7 @@ const DisplayExpenses = () => {
               </td>
             </tr>
           ) : (
-            expense.map((expense, index) => (
+            filterdExpenses.map((expense, index) => (
               <tr key={expense._id}>
                 <td>{index + 1}</td>
                 <td>{expense.title}</td>
